@@ -232,7 +232,7 @@
             }
             // elSubmainWidth/2 > touchendCoordX
             else if (open && (touchendCoordX < touchstartCoordX) && (touchendCoordX <= elSubmainWidth)) {
-                if ((elSubmainWidth / 4 >= touchendCoordX)) {
+                if ((elSubmainWidth / 3 >= touchendCoordX)) {
                     tssClose();
                 }
                 else {
@@ -382,10 +382,10 @@
         window.onload = function () {
             side_navbar_menu.addEventListener('swiped-left', function (e) {
                 tssClose()
-                menu_scroll_top.scrollTop = 0;
             });
 
-        }*/
+        }
+        */
 
 
         //------------------------------------------------------------------
