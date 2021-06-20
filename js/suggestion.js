@@ -174,6 +174,8 @@ function add_search_history_data_with_suggestion() {
 
 /*---suggsetion show section start---*/
 
+var key_bord_detect = false;
+
 //autocomplete(document.getElementById("myInput"), suggestion);
 autocomplete(document.getElementById("mobile_search_Input"), suggestion);
 
@@ -195,18 +197,9 @@ function autocomplete(inp, arr) {
     a = document.createElement("DIV");
     a.setAttribute("id", this.id + "autocomplete-list");
     // change auto complete max-width with js
-    if (res.matches) {
-      var MOBILE_suggestion_box_height = document.body.clientHeight;
-      var mobile_search_suggestion_navbar_height = document.querySelector('.mobile_search_suggestion_navbar').offsetHeight;
-      MOBILE_suggestion_box_height_info = MOBILE_suggestion_box_height - mobile_search_suggestion_navbar_height;
 
-      MOBILE_suggestion_box_height_info = MOBILE_suggestion_box_height_info - 2;
+    //resize_suggestion_box()
 
-      a.style.maxHeight = MOBILE_suggestion_box_height_info + "px";
-    }
-    else {
-      a.style.maxHeight = "176px";
-    }
     a.setAttribute("class", "autocomplete-items");
     /*append the DIV element as a child of the autocomplete container:*/
     this.parentNode.appendChild(a);
@@ -227,6 +220,7 @@ function autocomplete(inp, arr) {
         b.addEventListener("click", function (e) {
           /*insert the value for the autocomplete text field:*/
           inp.value = this.getElementsByTagName("input")[0].value;
+          inp.focus();
           /*close the list of autocompleted values,
           (or any other open lists of autocompleted values:*/
           closeAllLists();
@@ -287,6 +281,36 @@ function autocomplete(inp, arr) {
         x[i].parentNode.removeChild(x[i]);
       }
     }
+  }
+  inp.addEventListener("input",resize_suggestion_box)
+  function resize_suggestion_box() {
+    window.setTimeout(function () {
+      if (res.matches) {
+        if (key_bord_detect == true) {
+
+          var MOBILE_suggestion_box_height = document.body.clientHeight;
+          var mobile_search_suggestion_navbar_height = document.querySelector('.mobile_search_suggestion_navbar').offsetHeight;
+          MOBILE_suggestion_box_height_info = MOBILE_suggestion_box_height - mobile_search_suggestion_navbar_height;
+
+          MOBILE_suggestion_box_height_info = MOBILE_suggestion_box_height_info - 10;
+
+          document.getElementById('mobile_search_Inputautocomplete-list').style.maxHeight = MOBILE_suggestion_box_height_info + "px";
+        }
+        else {
+
+          var MOBILE_suggestion_box_height = document.body.clientHeight;
+          var mobile_search_suggestion_navbar_height = document.querySelector('.mobile_search_suggestion_navbar').offsetHeight;
+          MOBILE_suggestion_box_height_info = MOBILE_suggestion_box_height - mobile_search_suggestion_navbar_height;
+
+          MOBILE_suggestion_box_height_info = MOBILE_suggestion_box_height_info - 2;
+
+          document.getElementById('mobile_search_Inputautocomplete-list').style.maxHeight = MOBILE_suggestion_box_height_info + "px";
+        }
+      }
+      else {
+        document.getElementById('mobile_search_Inputautocomplete-list').style.maxHeight = "176px";
+      }
+    }, 2)
   }
   /*execute a function when someone clicks in the document:*/
   document.addEventListener("click", function (e) {
@@ -349,9 +373,10 @@ function clear_mobile_search() {
 }
 
 
-input_1 = document.getElementById('mobile_search_Input')
-input_1.addEventListener("keyup", function (event) {
+document.getElementById('mobile_search_Input').addEventListener("keyup", function (event) {
   if (event.keyCode === 13) {
+
+    event.preventDefault();
 
     if (document.getElementById("mobile_search_Input").value && document.getElementById("mobile_search_Input").value != " ") {
       window.location.href = "#searched"
@@ -366,6 +391,9 @@ input_1.addEventListener("keyup", function (event) {
     }
   }
 });
+
+
+
 
 var same_parsent_positonin = 0;
 
@@ -466,10 +494,16 @@ function show_search_history() {
   var mobile_search_suggestion_navbar_height = document.querySelector('.mobile_search_suggestion_navbar');
 
   window.setTimeout(function () {
-    MOBILE_suggestion_box_height_info = MOBILE_suggestion_box_height - mobile_search_suggestion_navbar_height.offsetHeight;
-    console.log()
-    mobile_search_history_section.style.maxHeight = MOBILE_suggestion_box_height_info + "px";
-  }, 5);
+    if (key_bord_detect == true) {
+      MOBILE_suggestion_box_height_info = MOBILE_suggestion_box_height - mobile_search_suggestion_navbar_height.offsetHeight;
+      MOBILE_suggestion_box_height_info = MOBILE_suggestion_box_height_info - 12;
+      mobile_search_history_section.style.maxHeight = MOBILE_suggestion_box_height_info + "px";
+    }
+    else {
+      MOBILE_suggestion_box_height_info = MOBILE_suggestion_box_height - mobile_search_suggestion_navbar_height.offsetHeight;
+      mobile_search_history_section.style.maxHeight = MOBILE_suggestion_box_height_info + "px";
+    }
+  }, 2);
 
 
 }
@@ -557,4 +591,16 @@ function opensuggestionboxexit() {
   reset_scroll_functions()
   // enable scroll end
 }
-  /* mobile suggestion start function end */
+/* mobile suggestion start function end */
+
+window.addEventListener('resize', function (e) {
+  if ($(document.getElementById('mobile_search_Input')).is(':focus')) {
+    key_bord_detect = true;
+  }
+  else {
+    key_bord_detect = false;
+  }
+  delete_all_show_search_history()
+  show_search_history()
+
+})
