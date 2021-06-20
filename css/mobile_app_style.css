@@ -630,6 +630,7 @@ background:#fff;
 }
 /*-------------------------------------------------- Mobile_side_menu end --------------------------------------------------*/
 
+/*-------------------------------------------------- search_menu start --------------------------------------------------*/
 .mobile_search_suggestion_section{
     display: none;
     position: fixed;
@@ -643,9 +644,19 @@ background:#fff;
     max-width: 992px;
     margin: auto;
     z-index: 9;
+
+    overflow-y: scroll; /*firefox*/
+    scrollbar-width: none; /* internet explorer 10+*/
+    -ms-overflow-style: none;
+}
+
+.mobile_search_suggestion_section::-webkit-scrollbar{
+    display: none;
 }
 
 .mobile_search_suggestion_navbar{
+    position: sticky;
+    top: 0;
     display: flex;
     height: 50px;
     width: 100%;
@@ -722,15 +733,16 @@ background:#fff;
     }
 
     .autocomplete-items {
-        position: absolute;
+        /*position: absolute;
         border-bottom: none;
         border-top: none;
+        */
         background-color: #f1f3f6;
-        left: 0;
+        /*left: 0;
         right: 0;
         top: 52px;
         overflow: auto;
-        box-shadow: 0px 0px 0px 0px rgb(0 0 0 / 0%)!important;
+        box-shadow: 0px 0px 0px 0px rgb(0 0 0 / 0%)!important;*/
     }
     
     .autocomplete-items div {
@@ -837,9 +849,8 @@ background:#fff;
 .mobile_search_history_section{
     display: none;
     width: 100%;
-    height: 100%;
+    /*height: 100%;*/
     background: #fff;
-    overflow: auto;
     z-index: 9;
 }
 
@@ -891,8 +902,10 @@ background:#fff;
     padding: 0px!important;
     margin-left: 0px!important;
 }
-/*---------------------------------------------------------------------------------------------------- Mobile_App_section start ----------------------------------------------------------------------------------------------------*/
 
+/*-------------------------------------------------- search_menu end --------------------------------------------------*/
+
+/*-------------------------------------------------- notification_menu end --------------------------------------------------*/
 .mobile_notification_section{
     display: none;
     position: fixed;
@@ -938,9 +951,9 @@ background:#fff;
     font-size: 18px;
 }
 
+/*-------------------------------------------------- notification_menu end --------------------------------------------------*/
 
-
-
+/*-------------------------------------------------- cart_menu end --------------------------------------------------*/
 .mobile_cart_section{
     display: none;
     position: fixed;
@@ -986,6 +999,7 @@ background:#fff;
     font-size: 18px;
 }
 
+/*-------------------------------------------------- cart_menu end --------------------------------------------------*/
 
 .mobile_category_section{
     background: #fff;
@@ -1090,8 +1104,9 @@ background:#fff;
     max-height: 280px;
 }
 
+/*---------------------------------------------------------------------------------------------------- Mobile_App_section end ----------------------------------------------------------------------------------------------------*/
 .main_content_of_body{
-    height: 150vh;
+    height: 100vh;
     width: 100%;
     background: #fff;
 }
