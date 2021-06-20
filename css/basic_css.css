@@ -39,7 +39,7 @@
     padding: 10px;
     cursor: pointer;
     background-color: #fff;
-    border-bottom: 1px solid #eaeaea;
+    /*border-bottom: 1px solid #eaeaea;*/
     
   }
   .autocomplete-items div:hover {
