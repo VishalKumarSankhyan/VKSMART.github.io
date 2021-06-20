@@ -292,7 +292,7 @@ function autocomplete(inp, arr) {
           var mobile_search_suggestion_navbar_height = document.querySelector('.mobile_search_suggestion_navbar').offsetHeight;
           MOBILE_suggestion_box_height_info = MOBILE_suggestion_box_height - mobile_search_suggestion_navbar_height;
 
-          MOBILE_suggestion_box_height_info = MOBILE_suggestion_box_height_info - 10;
+          MOBILE_suggestion_box_height_info = MOBILE_suggestion_box_height_info - 150;
 
           document.getElementById('mobile_search_Inputautocomplete-list').style.maxHeight = MOBILE_suggestion_box_height_info + "px";
         }
@@ -496,7 +496,7 @@ function show_search_history() {
   window.setTimeout(function () {
     if (key_bord_detect == true) {
       MOBILE_suggestion_box_height_info = MOBILE_suggestion_box_height - mobile_search_suggestion_navbar_height.offsetHeight;
-      MOBILE_suggestion_box_height_info = MOBILE_suggestion_box_height_info - 12;
+      MOBILE_suggestion_box_height_info = MOBILE_suggestion_box_height_info - 150;
       mobile_search_history_section.style.maxHeight = MOBILE_suggestion_box_height_info + "px";
     }
     else {
