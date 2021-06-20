@@ -41,12 +41,12 @@ background:#fff;
 .mobile_navbar{
     height: 50px;
     width: 100%;
-    background: linear-gradient(
+    /*background: linear-gradient(
         rgba(255, 154, 63, 1) 0%,
         rgba(255, 75, 64, 1) 100%
       );
-
-    /*background: rgba(63, 188, 255, 1);*/
+    */
+    background: rgba(63, 188, 255, 1);
     display: flex;
 }
 .mobile_navbar.scrolling{
@@ -399,12 +399,12 @@ background:#fff;
 .mobile_main_menu{
     height: 50px;
     width: 100%;
-    background: linear-gradient(
+    /*background: linear-gradient(
         rgba(255, 154, 63, 1) 0%,
         rgba(255, 75, 64, 1) 100%
       );
-
-    /*background: rgba(63, 188, 255, 1);*/
+    */
+    background: rgba(63, 188, 255, 1);
     box-shadow: 0 1px 6px 0 rgb(32 33 36 / 25%);
     position: relative;
     display: flex;
@@ -800,12 +800,12 @@ background:#fff;
     height: 60px;
     width: 60px;
     color: #fff;
-    background: linear-gradient(
+    /*background: linear-gradient(
         rgba(255, 154, 63, 1) 0%,
         rgba(255, 75, 64, 1) 100%
-      );
+      );*/
 
-    /*background: rgba(63, 188, 255, 1);*/
+    background: rgba(63, 188, 255, 1);
     border-radius: 50px;
     overflow: hidden;
     position: absolute;
@@ -826,18 +826,18 @@ background:#fff;
 
 @keyframes btn_prograss_shdow{
     0%{
-        box-shadow: 0px 0px 0px 0px rgb(250, 177, 114);
-        /*box-shadow: 0px 0px 0px 0px #0099ff88;*/
+        /*box-shadow: 0px 0px 0px 0px rgb(250, 177, 114);*/
+        box-shadow: 0px 0px 0px 0px #0099ff88;
     }
 
     70%{
-        box-shadow: 0px 0px 4px 10px rgb(250, 177, 114);
-        /*box-shadow: 0px 0px 4px 10px #0099ff88;*/
+        /*box-shadow: 0px 0px 4px 10px rgb(250, 177, 114);*/
+        box-shadow: 0px 0px 4px 10px #0099ff88;
     }
 
     100%{
-        box-shadow: 0px 0px 0px 0px rgb(250, 177, 114);
-        /*box-shadow: 0px 0px 0px 0px #0099ff88;*/
+        /*box-shadow: 0px 0px 0px 0px rgb(250, 177, 114);*/
+        box-shadow: 0px 0px 0px 0px #0099ff88;
     }
    
 }
@@ -863,7 +863,7 @@ background:#fff;
     width: 100%;
     cursor: pointer;
     background-color: #fff;
-    border-bottom: 1px solid #eaeaea;
+    /*border-bottom: 1px solid #eaeaea;*/
 }
 
 .mobile_search_history_section_main:hover {
@@ -919,12 +919,12 @@ background:#fff;
     display: flex;
     height: 50px;
     width: 100%;
-    background: linear-gradient(
+    /*background: linear-gradient(
         rgba(255, 154, 63, 1) 0%,
         rgba(255, 75, 64, 1) 100%
-      );
+      );*/
 
-    /*background: rgba(63, 188, 255, 1);*/
+    background: rgba(63, 188, 255, 1);
 }
 
 .mobile_notification_back_btn svg{
@@ -969,12 +969,12 @@ background:#fff;
     display: flex;
     height: 50px;
     width: 100%;
-    background: linear-gradient(
+    /*background: linear-gradient(
         rgba(255, 154, 63, 1) 0%,
         rgba(255, 75, 64, 1) 100%
       );
-
-    /*background: rgba(63, 188, 255, 1);*/
+    */
+    background: rgba(63, 188, 255, 1);
 }
 
 .mobile_cart_back_btn svg{
